@@ -26,6 +26,13 @@ A set of files to build RPM for HashiCorp Vault - a tool for managing secrets ht
    spectool -g -R ~/rpmbuild/SPECS/vault.spec && \
    rpmbuild -ba ~/rpmbuild/SPECS/vault.spec
    ```
+5. Install the service, enable the UI and start vault!
+
+   ```
+   rpm -Uvh ~/rpmbuild/RPMS/x86_64/*.rpm
+   echo "ui=true" >> /etc/vault/server.hcl
+   service vault@server start
+   ```
 
 After all you'll find RPM package in ~/rpmbuild/RPMS/x86_64/
 
